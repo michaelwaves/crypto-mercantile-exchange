@@ -1,0 +1,20 @@
+::set_tx_sender ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+
+;; Create the option
+(contract-call? .options create-option "PEPE20250601C00010" "PEPE" "call" u10 u760000 u1  u2 u5 )
+(contract-call? .options fund-contract u100000)
+;; Set sender to wallet_1
+::set_tx_sender ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
+
+;; Buy 5 contracts using the fully qualified contract name
+(contract-call? 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.options buy-option "PEPE20250601C00010" u5)
+
+;; Check position
+(contract-call? 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.options get-position 'ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5 "PEPE20250601C00010" )
+
+;; Sell 2 contracts
+(contract-call? 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.options sell-option "PEPE20250601C00010"  u2 )
+
+;; (Optional) Delete the option (only allowed by creator
+
+(contract-call? 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.options delete-option "PEPE20250601C00010")
