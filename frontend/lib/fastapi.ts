@@ -3,7 +3,9 @@
 const FASTAPI_URL = process.env.FASTAPI_URL
 
 export const getCoins = async () => {
-    const res = await fetch(`${FASTAPI_URL}/coins`, {
+    const url = `${FASTAPI_URL}/coins`
+    console.log(url)
+    const res = await fetch(url, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -34,8 +36,9 @@ export const calculateOptionPrice = async ({
         volatility_lookback_days,
         vs_currency,
     })
-
-    const res = await fetch(`${FASTAPI_URL}/price-options?${params.toString()}`, {
+    const url = `${FASTAPI_URL}/price-options?${params.toString()}`
+    console.log(url)
+    const res = await fetch(url, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

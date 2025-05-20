@@ -6,13 +6,13 @@ function DashboardPage() {
         {
             icon: User,
             title: "Market Participant",
-            href: "/user",
+            href: "dashboard/market-participant",
             description: "Buy and Sell Options"
         },
         {
             icon: Landmark,
             title: "Market Maker",
-            href: "/market-maker",
+            href: "dashboard/market-maker",
             description: "Issue options and fund the contract to provide initial liquidity"
         },
     ]
